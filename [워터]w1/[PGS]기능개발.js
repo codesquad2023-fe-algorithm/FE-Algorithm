@@ -1,16 +1,18 @@
 const solution = (progresses, speeds) => {
-  const days = progresses.map((x, i) => Math.floor((100 - x) / speeds[i]));
+  const days = progresses.map((x, i) => Math.ceil((100 - x) / speeds[i]));
   let max = days[0];
-  let count = 1;
   const result = [];
+  let count = 1;
   for (let i = 1; i < days.length; i++) {
-    if (max > days[i]) {
-      count += 1;
+    if (max >= days[i]) {
+      count++;
     } else {
       result.push(count);
+      max = days[i];
       count = 1;
     }
   }
+  result.push(count);
   return result;
 };
 
