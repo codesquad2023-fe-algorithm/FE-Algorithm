@@ -8,13 +8,12 @@ function solution(s) {
   for (let i = 1; i < s.length; i++) {
     if (s[i] === '(') {
       stringStack.push('(');
-      continue;
+    } else {
+      const lastStr = stringStack[stringStack.length - 1];
+
+      if (stringStack.length === 0) return false;
+      else stringStack.pop();
     }
-
-    const lastStr = stringStack[stringStack.length - 1];
-
-    if (stringStack.length === 0 || lastStr === ')') return false;
-    else stringStack.pop();
   }
 
   return stringStack.length === 0;
