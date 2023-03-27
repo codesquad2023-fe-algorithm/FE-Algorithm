@@ -1,23 +1,24 @@
-function solution(s, n) {
-  let answer = [];
-  for (let i = 0; i < s.length; i++) {
-    let letterCode = s.charCodeAt(i);
-    if (letterCode !== 32) {
-      if (letterCode <= 90) {
-        if (letterCode + n <= 90) {
-          letterCode += n;
+const solution = (s, n) => {
+  return [...s]
+    .map((word, index) => {
+      if (word === ' ') return ' ';
+      let code = word.charCodeAt(0);
+      const UPPER_CODE_MAX = 90;
+      const LOWER_CODE_MAX = 122;
+      if (code <= UPPER_CODE_MAX) {
+        if (code + n <= UPPER_CODE_MAX) {
+          code += n;
         } else {
-          letterCode += n - 26;
+          code += n - 26;
         }
       } else {
-        if (letterCode + n <= 122) {
-          letterCode += n;
+        if (code + n <= LOWER_CODE_MAX) {
+          code += n;
         } else {
-          letterCode += n - 26;
+          code += n - 26;
         }
       }
-    }
-    answer.push(String.fromCharCode(letterCode));
-  }
-  return answer.join('');
-}
+      return String.fromCharCode(code);
+    })
+    .join('');
+};
