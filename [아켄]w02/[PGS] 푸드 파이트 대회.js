@@ -7,10 +7,7 @@ function solution(food) {
     half += String(i).repeat(Math.floor(e / 2));
   });
   answer += half;
-  const reversedHalf = half
-    .split("")
-    .reverse((a, b) => a - b)
-    .join("");
+  const reversedHalf = half.split("").reverse().join("");
   answer += "0" + reversedHalf;
   return answer;
 }
