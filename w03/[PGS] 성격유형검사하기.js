@@ -7,7 +7,7 @@
  * @returns
  */
 function solution(survey, choices) {
-  const types = ["RT","CF","JM","AN"];
+  const types = ["RT", "CF", "JM", "AN"];
   const score = { R: 0, T: 0, C: 0, F: 0, J: 0, M: 0, A: 0, N: 0 };
 
   survey.forEach((test, index) => {
@@ -18,8 +18,9 @@ function solution(survey, choices) {
     score[choice >= 4 ? agree : disagree] += Math.abs(choice - 4);
   });
 
-  return types.reduce((acc, cur) => {
-    score[cur.charAt(0)] >= score[cur.charAt(1)] ? acc += cur.charAt(0) : acc += cur.charAt(1);
+  return types.reduce((acc, type) => {
+    score[type.charAt(0)] >= score[type.charAt(1)] ?
+      acc += type.charAt(0) : acc += type.charAt(1);
     return acc;
   }, '');
 }
