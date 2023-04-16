@@ -10,7 +10,7 @@ function solution(k, tangerine) {
     else types[type] = 1;
   });
 
-  // 어떤 type인지는 중요하지 않으니 갯수만 있는 배열을 오름차순으로 정렬
+  // 어떤 type인지는 중요하지 않으니 수만 있는 배열을 오름차순으로 정렬
   const count = Object.values(types).sort((a, b) => a - b);
 
   while (k > 0) {
