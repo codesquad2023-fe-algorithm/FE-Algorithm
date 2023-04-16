@@ -14,12 +14,11 @@ function solution(k, tangerine) {
   }
 
   const sizes = [...map.values()].sort((a, b) => b - a);
-  let count = 0;
-  let sum = 0;
+  let [type, sum] = [0, 0];
   for(const b of sizes) {
-    count++;
+    type++;
     sum += b;
     if(sum >= k) break;
   }
-  return count;
+  return type;
 }
