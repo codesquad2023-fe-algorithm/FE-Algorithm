@@ -3,7 +3,7 @@ function solution(k, tangerine) {
   let total = k;
   let answer = 0;
 
-  // 귤 갯수 세기
+  // 귤 개수 세기
   tangerine.forEach((type) => {
     // types에 type이 존재한다면 +1, 존재하지 않으면 1
     if (types[type]) types[type] += 1;
